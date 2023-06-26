@@ -1,17 +1,16 @@
-import { glob, globSync, globStream, globStreamSync, Glob } from '../node_modules/glob'
-
-console.log("Finished importing glob...")
-// or using commonjs, that's fine, too
-
-// the main glob() and globSync() resolve/return array of filenames
-
-// all js files, but don't look in node_modules
-const g = new Glob('audio/*.m4a')
-// glob objects are async iterators, can also do globIterate() or
-// g.iterate(), same deal
-for await (const file of g) {
-  console.log('found an audio file:', file)
-}
+// import { glob, globSync, globStream, globStreamSync, Glob } from 'glob'
+//
+// console.log("Finished importing glob...")
+//
+// // the main glob() and globSync() resolve/return array of filenames
+// 
+// // all js files, but don't look in node_modules
+// const g = new Glob('audio/*.m4a')
+// // glob objects are async iterators, can also do globIterate() or
+// // g.iterate(), same deal
+// for await (const file of g) {
+//   console.log('found an audio file:', file)
+// }
 
 const file1 = document.createElement("audio");
 file1.id = "slug";
