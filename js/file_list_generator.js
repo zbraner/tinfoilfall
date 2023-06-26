@@ -1,4 +1,4 @@
-import { glob, globSync, globStream, globStreamSync, Glob } from 'glob'
+import { glob, globSync, globStream, globStreamSync, Glob } from '../node_modules/glob'
 
 console.log("Finished importing glob...")
 // or using commonjs, that's fine, too
