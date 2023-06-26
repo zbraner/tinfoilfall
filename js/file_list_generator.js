@@ -1,4 +1,3 @@
-load using import
 import { glob, globSync, globStream, globStreamSync, Glob } from 'glob'
 
 console.log("Finished importing glob...")
