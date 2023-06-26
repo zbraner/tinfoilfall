@@ -2,18 +2,11 @@ import { glob, globSync, globStream, globStreamSync, Glob } from './node_modules
 
 console.log("Finished importing glob...")
 // or using commonjs, that's fine, too
-const {
-  glob,
-  globSync,
-  globStream,
-  globStreamSync,
-  Glob,
-} = require('glob')
 
 // the main glob() and globSync() resolve/return array of filenames
 
 // all js files, but don't look in node_modules
-const g = new Glob('*.m4a')
+const g = new Glob('audio/*.m4a')
 // glob objects are async iterators, can also do globIterate() or
 // g.iterate(), same deal
 for await (const file of g) {
