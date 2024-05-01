@@ -20,6 +20,10 @@ function readTextFile(file) {
   return fileText;
 }
 
+function helloWorld(){
+  console.log("Hello world");
+}
+
 function logPoem(){
   var passages = readTextFile("passages_clean.txt");
   var encyclopedia = readTextFile("encyclopedia_vol1_clean.txt");
