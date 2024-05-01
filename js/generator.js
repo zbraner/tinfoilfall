@@ -1,5 +1,8 @@
 
-//button - generates a
+
+function helloWorld() {
+  console.log("Hello world");
+}
 
 function readTextFile(file) {
   var rawFile = new XMLHttpRequest();
@@ -20,11 +23,8 @@ function readTextFile(file) {
   return fileText;
 }
 
-function helloWorld(){
-  console.log("Hello world");
-}
 
-function logPoem(){
+function logPoem() {
   var passages = readTextFile("passages_clean.txt");
   var encyclopedia = readTextFile("encyclopedia_vol1_clean.txt");
 
