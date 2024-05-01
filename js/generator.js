@@ -1,19 +1,28 @@
 
 //button - generates a
+
 function readTextFile(file) {
   var rawFile = new XMLHttpRequest();
   rawFile.open("GET", file, false);
+
+  var fileText;
+
   rawFile.onreadystatechange = function () {
     if (rawFile.readyState === 4) {
       if (rawFile.status === 200 || rawFile.status == 0) {
-        var allText = rawFile.responseText;
-        document.getElementById("text-container").innerHTML = allText;
+        var fileText = rawFile.responseText;
+
       }
     }
   }
+
   rawFile.send(null);
+  return fileText;
 }
 
-readTextFile("passages_clean.txt");
+passages = readTextFile("passages_clean.txt");
+encyclopedia = readTextFile("encyclopedia_vol1_clean.txt");
+
+document.getElementById("text-container").innerHTML = encyclopedia;
 
 console.log("loving it");
