@@ -13,8 +13,7 @@ function readTextFile(file) {
   rawFile.onreadystatechange = function () {
     if (rawFile.readyState === 4) {
       if (rawFile.status === 200 || rawFile.status == 0) {
-        var fileText = rawFile.responseText;
-        console.log(fileText.slice(0, 5));
+        fileText = rawFile.responseText;
       }
     }
   }
@@ -26,9 +25,7 @@ function readTextFile(file) {
 
 function logPoem() {
   var passages = readTextFile("passages_clean.txt");
-  console.log(passages.slice(5, 10));
   var encyclopedia = readTextFile("encyclopedia_vol1_clean.txt");
-  console.log(encyclopedia.slice(5, 10));
 
 
   var max_line_char_count = 60;
