@@ -44,7 +44,7 @@ function getRandomPhraseFromString(sourceString){
 
 function logPoem() {
 
-  var scrap = [];
+  var scrap = ["..."];
 
   var passages = readTextFile("passages_clean.txt");
   var encyclopedia = readTextFile("encyclopedia_vol1_clean.txt");
@@ -67,6 +67,6 @@ function logPoem() {
       console.log(phrase);
       scrap.push(phrase);
   }
-
+ scrap.push("...");
   document.getElementById("text-container").innerHTML = scrap.join("\n");
 }
