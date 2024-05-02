@@ -22,26 +22,25 @@ function readTextFile(file) {
   return fileText;
 }
 
+const max_line_char_count = 60;
+const min_line_char_count = 40;
 
-  const max_line_char_count = 60;
-  const min_line_char_count = 40;
+const max_words = 10;
+const min_words = 5;
 
-  const max_words = 10;
-  const min_words = 5;
+const line_char_count_est = max_words*15;
 
-  const line_char_count_est = max_words*15;
+function getRandomPhraseFromString(sourceString){
 
-
-  function getRandomPhraseFromString(sourceString){
-    var random_starting_point = Math.floor(Math.random()*(sourceString.len-line_char_count_est));
+    var random_starting_point = Math.floor(Math.random()*(sourceString.length-line_char_count_est));
     var fragment = sourceString.slice(random_starting_point, random_starting_point+line_char_count_est);
     fragment = fragment.slice(fragment.indexOf(" "));
     var fragment_words = fragment.split(" ");
     var word_count = Math.floor(Math.random()*(max_words-min_words))+min_words;
     var words = fragment_words.slice(0, word_count);
     return words.join(" ");
-    
-  }
+
+}
 
 function logPoem() {
 
