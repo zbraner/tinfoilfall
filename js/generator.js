@@ -23,45 +23,34 @@ function readTextFile(file) {
 }
 
 
+  const max_line_char_count = 60;
+  const min_line_char_count = 40;
+
+  const max_words = 10;
+  const min_words = 5;
+
+  const line_char_count_est = max_words*15;
+
 function logPoem() {
 
   var scrap = [];
 
   var passages = readTextFile("passages_clean.txt");
   var encyclopedia = readTextFile("encyclopedia_vol1_clean.txt");
-
-
-  var max_line_char_count = 60;
-  var min_line_char_count = 40;
-
-  var max_words = 10;
-  var min_words = 5;
-
-  var line_char_count_est = max_words*15;
-
-  var passages_len = passages.length;
-  var personal_passages_len = encyclopedia.length;
+  var wonders = readTextFile("wonders_clean.txt");
 
   for (let i = 0; i < 14; i++) {
    var phrase  = "nothing yet";
 
       while(phrase === "nothing yet"){
-        if(i%2 == 0){
-          var random_starting_point = Math.floor(Math.random()*(passages_len-line_char_count_est));
-          var fragment = passages.slice(random_starting_point, random_starting_point+line_char_count_est);
-          fragment = fragment.slice(fragment.indexOf(" "));
-          var fragment_words = fragment.split(" ");
-          var word_count = Math.floor(Math.random()*(max_words-min_words))+min_words;
-          var words = fragment_words.slice(0, word_count);
-          phrase = words.join(" ");
+        var src = Math.floor(Math.random()*3)
+
+        if(src == 0){
+          phrase = getRandomPhraseFromString(passages);
+        }else if(src == 1){
+          phrase = getRandomPhraseFromString(encyclopedia);
         }else{
-          var random_starting_point = Math.floor(Math.random()*(personal_passages_len-line_char_count_est));
-          var fragment = encyclopedia.slice(random_starting_point, random_starting_point+line_char_count_est);
-          fragment = fragment.slice(fragment.indexOf(" "));
-          var fragment_words = fragment.split(" ");
-          var word_count = Math.floor(Math.random()*(max_words-min_words))+min_words;
-          var words = fragment_words.slice(0, word_count);
-          phrase = words.join(" ");
+          phrase = getRandomPhraseFromString(wonders);
         }
       }
       console.log(phrase);
@@ -69,4 +58,16 @@ function logPoem() {
   }
 
   document.getElementById("text-container").innerHTML = scrap.join("\n");
+}
+
+
+function getRandomPhraseFromString(sourceString){
+  var random_starting_point = Math.floor(Math.random()*(sourceString.len-line_char_count_est));
+  var fragment = sourceString.slice(random_starting_point, random_starting_point+line_char_count_est);
+  fragment = fragment.slice(fragment.indexOf(" "));
+  var fragment_words = fragment.split(" ");
+  var word_count = Math.floor(Math.random()*(max_words-min_words))+min_words;
+  var words = fragment_words.slice(0, word_count);
+  phrase = words.join(" ");
+  return phrase;
 }
