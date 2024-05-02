@@ -31,6 +31,18 @@ function readTextFile(file) {
 
   const line_char_count_est = max_words*15;
 
+
+  function getRandomPhraseFromString(sourceString){
+    var random_starting_point = Math.floor(Math.random()*(sourceString.len-line_char_count_est));
+    var fragment = sourceString.slice(random_starting_point, random_starting_point+line_char_count_est);
+    fragment = fragment.slice(fragment.indexOf(" "));
+    var fragment_words = fragment.split(" ");
+    var word_count = Math.floor(Math.random()*(max_words-min_words))+min_words;
+    var words = fragment_words.slice(0, word_count);
+    return words.join(" ");
+    
+  }
+
 function logPoem() {
 
   var scrap = [];
@@ -58,16 +70,4 @@ function logPoem() {
   }
 
   document.getElementById("text-container").innerHTML = scrap.join("\n");
-}
-
-
-function getRandomPhraseFromString(sourceString){
-  var random_starting_point = Math.floor(Math.random()*(sourceString.len-line_char_count_est));
-  var fragment = sourceString.slice(random_starting_point, random_starting_point+line_char_count_est);
-  fragment = fragment.slice(fragment.indexOf(" "));
-  var fragment_words = fragment.split(" ");
-  var word_count = Math.floor(Math.random()*(max_words-min_words))+min_words;
-  var words = fragment_words.slice(0, word_count);
-  phrase = words.join(" ");
-  return phrase;
 }
