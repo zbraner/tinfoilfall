@@ -43,7 +43,7 @@ function logPoem() {
    var phrase  = "nothing yet";
 
       while(phrase === "nothing yet"){
-        var src = Math.floor(Math.random()*3)
+        var src = Math.floor(Math.random()*3);
 
         if(src == 0){
           phrase = getRandomPhraseFromString(passages);
