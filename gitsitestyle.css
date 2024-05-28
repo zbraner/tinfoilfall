@@ -50,7 +50,8 @@ body {
   float: left;
   color: black;
   text-align: center;
-  padding: 140px 12px;
+  padding-left: 140px;
+  padding-bottom: 60;
   text-decoration: none;
   font-size: 18px;
   line-height: 25px;
